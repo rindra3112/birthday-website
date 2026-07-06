@@ -18,6 +18,11 @@
 
 <body>
 
+    <!-- Musik -->
+    <audio id="bgMusic" loop>
+        <source src="../assets/music/lagu1.mp3" type="audio/mpeg">
+    </audio>
+
     <!-- Floating Hearts -->
     <div class="heart h1">🤍</div>
     <div class="heart h2">💖</div>
@@ -38,7 +43,7 @@
 
             <p id="typing"></p>
 
-            <button onclick="nextPage()">
+            <button onclick="startMusic()">
                 Lihat Kenangan 📸
             </button>
 
@@ -48,6 +53,34 @@
 
     <script src="../script.js"></script>
 
-</body>
+    <script>
 
+        const music = document.getElementById("bgMusic");
+
+        function startMusic(){
+
+            music.play();
+
+            setTimeout(()=>{
+
+                window.location.href="gallery.html";
+
+            },500);
+
+        }
+
+        // Jika browser mengizinkan autoplay
+        window.addEventListener("load",()=>{
+
+            music.play().catch(()=>{
+
+                console.log("Browser menunggu interaksi pengguna.");
+
+            });
+
+        });
+
+    </script>
+
+</body>
 </html>
