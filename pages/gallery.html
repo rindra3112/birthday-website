@@ -3,71 +3,69 @@
 
 <head>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Gallery ❤️</title>
+    <title>Gallery ❤️</title>
 
-<link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../style.css">
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
 
 </head>
 
 <body>
 
-<!-- Background Music -->
-<audio id="galleryMusic" loop preload="auto">
-    <source src="../assets/music/gallery.mp3" type="audio/mpeg">
-</audio>
+    <!-- Musik -->
+    <audio id="galleryMusic" loop preload="auto">
+        <source src="../assets/music/gallery.mp3" type="audio/mpeg">
+    </audio>
 
-<div class="gallery-page">
+    <div class="gallery-page">
 
-    <h1>Our Memories ❤️</h1>
+        <h1>Our Memories ❤️</h1>
 
-    <p>
-        Foto kita yang selalu bikin senyum 😊
-    </p>
+        <p>Foto kita yang selalu bikin senyum 😊</p>
 
-    <div class="gallery">
+        <div class="gallery">
 
-        <div class="photo">
-            <img src="../assets/images/foto1.jpg" alt="Foto 1">
-            <span>Capii Imupp ❤️</span>
+            <div class="photo">
+                <img src="../assets/images/foto1.jpg" alt="Foto 1">
+                <span>Capii Imupp ❤️</span>
+            </div>
+
+            <div class="photo">
+                <img src="../assets/images/foto2.jpg" alt="Foto 2">
+                <span>Makan Dubai Cukuwiki 🍴</span>
+            </div>
+
+            <div class="photo">
+                <img src="../assets/images/foto3.jpg" alt="Foto 3">
+                <span>Capii Peluk Ata Bear 🧸</span>
+            </div>
+
+            <div class="photo">
+                <img src="../assets/images/foto4.jpg" alt="Foto 4">
+                <span>Nunggu SSB ⚽</span>
+            </div>
+
+            <div class="photo">
+                <img src="../assets/images/foto5.jpg" alt="Foto 5">
+                <span>Pertama Selfie 📸</span>
+            </div>
+
+            <div class="photo">
+                <img src="../assets/images/foto6.jpg" alt="Foto 6">
+                <span>Emote Capii 🥰</span>
+            </div>
+
         </div>
 
-        <div class="photo">
-            <img src="../assets/images/foto2.jpg" alt="Foto 2">
-            <span>Makan Dubai Cukuwiki 🍴</span>
-        </div>
-
-        <div class="photo">
-            <img src="../assets/images/foto3.jpg" alt="Foto 3">
-            <span>Capii Peluk Ata Bear 🧸</span>
-        </div>
-
-        <div class="photo">
-            <img src="../assets/images/foto4.jpg" alt="Foto 4">
-            <span>Nunggu SSB ⚽</span>
-        </div>
-
-        <div class="photo">
-            <img src="../assets/images/foto5.jpg" alt="Foto 5">
-            <span>Pertama Selfie 📸</span>
-        </div>
-
-        <div class="photo">
-            <img src="../assets/images/foto6.jpg" alt="Foto 6">
-            <span>Emote Capii 🥰</span>
-        </div>
+        <button onclick="goToLetter()">
+            Lanjut 💌
+        </button>
 
     </div>
-
-    <button onclick="goToLetter()">
-        Lanjut 💌
-    </button>
-
-</div>
 
 <script>
 
@@ -75,44 +73,35 @@ const music = document.getElementById("galleryMusic");
 
 music.volume = 0.35;
 
-// Desktop
-window.addEventListener("load", () => {
+// Mencegah play dipanggil berkali-kali
+let musicStarted = false;
+
+function playMusic(){
+
+    if(musicStarted) return;
+
+    musicStarted = true;
 
     music.play().catch(() => {
 
-        console.log("Autoplay diblokir browser.");
+        console.log("Browser memerlukan interaksi pengguna.");
 
     });
 
-});
+}
 
-// HP (interaksi pertama)
-document.body.addEventListener("touchstart", () => {
+// Coba autoplay (desktop)
+window.addEventListener("load", playMusic);
 
-    if(music.paused){
-
-        music.play();
-
-    }
-
-},{once:true});
-
-// Laptop/Desktop
-document.body.addEventListener("click", () => {
-
-    if(music.paused){
-
-        music.play();
-
-    }
-
-},{once:true});
+// Jika autoplay diblokir, interaksi pertama akan memulai musik
+document.addEventListener("pointerdown", playMusic, { once:true });
 
 function goToLetter(){
 
     music.pause();
+    music.currentTime = 0;
 
-    window.location.href="letter.html";
+    window.location.href = "letter.html";
 
 }
 
