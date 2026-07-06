@@ -14,17 +14,69 @@
 
 </head>
 
-<audio id="galleryMusic" loop autoplay>
+<body>
+
+<!-- Background Music -->
+<audio id="galleryMusic" loop preload="auto">
     <source src="../assets/music/gallery.mp3" type="audio/mpeg">
 </audio>
 
+<div class="gallery-page">
+
+    <h1>Our Memories ❤️</h1>
+
+    <p>
+        Foto kita yang selalu bikin senyum 😊
+    </p>
+
+    <div class="gallery">
+
+        <div class="photo">
+            <img src="../assets/images/foto1.jpg" alt="Foto 1">
+            <span>Capii Imupp ❤️</span>
+        </div>
+
+        <div class="photo">
+            <img src="../assets/images/foto2.jpg" alt="Foto 2">
+            <span>Makan Dubai Cukuwiki 🍴</span>
+        </div>
+
+        <div class="photo">
+            <img src="../assets/images/foto3.jpg" alt="Foto 3">
+            <span>Capii Peluk Ata Bear 🧸</span>
+        </div>
+
+        <div class="photo">
+            <img src="../assets/images/foto4.jpg" alt="Foto 4">
+            <span>Nunggu SSB ⚽</span>
+        </div>
+
+        <div class="photo">
+            <img src="../assets/images/foto5.jpg" alt="Foto 5">
+            <span>Pertama Selfie 📸</span>
+        </div>
+
+        <div class="photo">
+            <img src="../assets/images/foto6.jpg" alt="Foto 6">
+            <span>Emote Capii 🥰</span>
+        </div>
+
+    </div>
+
+    <button onclick="goToLetter()">
+        Lanjut 💌
+    </button>
+
+</div>
+
 <script>
 
+const music = document.getElementById("galleryMusic");
+
+music.volume = 0.35;
+
+// Desktop
 window.addEventListener("load", () => {
-
-    const music = document.getElementById("galleryMusic");
-
-    music.volume = 0.35;
 
     music.play().catch(() => {
 
@@ -34,59 +86,37 @@ window.addEventListener("load", () => {
 
 });
 
+// HP (interaksi pertama)
+document.body.addEventListener("touchstart", () => {
+
+    if(music.paused){
+
+        music.play();
+
+    }
+
+},{once:true});
+
+// Laptop/Desktop
+document.body.addEventListener("click", () => {
+
+    if(music.paused){
+
+        music.play();
+
+    }
+
+},{once:true});
+
+function goToLetter(){
+
+    music.pause();
+
+    window.location.href="letter.html";
+
+}
+
 </script>
-
-<body>
-
-<div class="gallery-page">
-
-    <h1>Our Memories ❤️</h1>
-
-    <p>
-        foto kita ga blur.
-    </p>
-
-    <div class="gallery">
-
-        <div class="photo">
-            <img src="../assets/images/foto1.jpg">
-            <span>capii imupp</span>
-        </div>
-
-        <div class="photo">
-            <img src="../assets/images/foto2.jpg">
-            <span>makan dubai cukuwiki</span>
-        </div>
-
-        <div class="photo">
-            <img src="../assets/images/foto3.jpg">
-            <span>capii peluk ata bear</span>
-        </div>
-
-        <div class="photo">
-            <img src="../assets/images/foto4.jpg">
-            <span>Nunggu ssb</span>
-        </div>
-
-        <div class="photo">
-            <img src="../assets/images/foto5.jpg">
-            <span>pertama selfie</span>
-        </div>
-
-        <div class="photo">
-            <img src="../assets/images/foto6.jpg">
-            <span>emote capii</span>
-        </div>
-
-    </div>
-
-    <button onclick="letterPage()">
-        Lanjut 💌
-    </button>
-
-</div>
-
-<script src="../script.js"></script>
 
 </body>
 </html>

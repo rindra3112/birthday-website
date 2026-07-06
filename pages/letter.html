@@ -14,28 +14,12 @@
 
 </head>
 
-<audio id="letterMusic" loop autoplay>
+<body>
+
+<!-- Musik -->
+<audio id="letterMusic" loop preload="auto">
     <source src="../assets/music/lagu1.mp3" type="audio/mpeg">
 </audio>
-
-<script>
-
-window.addEventListener("load", () => {
-
-    const music = document.getElementById("letterMusic");
-
-    music.volume = 0.30;
-
-    music.play().catch(() => {
-
-        console.log("Autoplay diblokir browser.");
-
-    });
-
-});
-
-</script>
-<body>
 
 <div class="birthday-page">
 
@@ -46,41 +30,45 @@ window.addEventListener("load", () => {
         <p style="line-height:35px">
 
             Selamat ulang tahun Capii Imupp ❤️
+
             <br><br>
 
             Semoga capii sehat selalu,
-            Tambah Pinter lagii,
-            makin rajin lagiii belajar dan kegiatan lainnya,
+            tambah pinter lagi,
+            makin rajin,
             makin sayang sama keluarga.
 
             <br><br>
 
-            Semoga rezekinya makin dilimpahkkan baik itu rezeki materi maupun non materi,
-            koasnya dipermudah terusss,
+            Semoga rezekinya makin dilimpahkan,
+            koasnya dipermudah,
             lulus jadi dokter tepat waktu.
 
-            Aamiin
+            Aamiin 🤲
 
             <br><br>
 
             Ata selalu bangga sama Capii.
-            makasih yahh selalu baik terus sama ata.
+
+            Makasih ya selalu baik sama Ata.
 
             <br><br>
 
-            Ataa sayang Capii selalu ❤️
+            Ataa sayang Capii selamanya ❤️
 
         </p>
 
         <button class="finish-btn" onclick="finishLetter()">
+
             Selesai ❤️
+
         </button>
 
     </div>
 
 </div>
 
-<!-- Amplop -->
+<!-- Closing Envelope -->
 
 <div id="closingEnvelope" class="closing-envelope">
 
@@ -98,22 +86,42 @@ window.addEventListener("load", () => {
 
 <script>
 
-function finishLetter(){
+const music = document.getElementById("letterMusic");
 
-    const music = document.getElementById("letterMusic");
+music.volume = 0.3;
 
-    if(music){
+// Browser desktop biasanya mengizinkan autoplay
+window.addEventListener("load", () => {
 
-        music.pause();
+    music.play().catch(() => {
+
+        console.log("Menunggu interaksi pengguna...");
+
+    });
+
+});
+
+// Interaksi pertama di HP
+document.body.addEventListener("click", function(){
+
+    if(music.paused){
+
+        music.play();
 
     }
 
+},{once:true});
+
+// Tombol selesai
+function finishLetter(){
+
+    music.pause();
+
     document.getElementById("letterCard").style.display="none";
 
-    document.getElementById("closingEnvelope")
-            .classList.add("show");
+    document.getElementById("closingEnvelope").classList.add("show");
 
-    setTimeout(function(){
+    setTimeout(()=>{
 
         window.location.href="../index.html";
 
