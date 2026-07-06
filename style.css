@@ -1,0 +1,1449 @@
+/* =====================================================
+   HAPPY BIRTHDAY WEBSITE
+   PART 1
+   Reset • Background • Login • Animations
+===================================================== */
+
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Great+Vibes&display=swap');
+
+/* =========================
+        RESET
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    font-family:'Poppins',sans-serif;
+
+    background:linear-gradient(
+        135deg,
+        #ffd6e8 0%,
+        #ffb6d9 30%,
+        #ff8dc5 70%,
+        #ff73b7 100%
+    );
+
+    min-height:100vh;
+
+    overflow-x:hidden;
+
+    position:relative;
+
+}
+
+/* =========================
+        BACKGROUND
+========================= */
+
+body::before{
+
+    content:"";
+
+    position:fixed;
+
+    width:650px;
+    height:650px;
+
+    border-radius:50%;
+
+    top:-250px;
+    left:-180px;
+
+    background:white;
+
+    opacity:.15;
+
+    filter:blur(120px);
+
+    z-index:-2;
+
+}
+
+body::after{
+
+    content:"";
+
+    position:fixed;
+
+    width:500px;
+    height:500px;
+
+    border-radius:50%;
+
+    bottom:-180px;
+    right:-120px;
+
+    background:#ff4fa2;
+
+    opacity:.18;
+
+    filter:blur(100px);
+
+    z-index:-2;
+
+}
+
+/* =========================
+        CONTAINER
+========================= */
+
+.container{
+
+    width:100%;
+
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:25px;
+
+}
+
+/* =========================
+        LOGIN CARD
+========================= */
+
+.card{
+
+    width:min(95%,420px);
+
+    background:rgba(255,255,255,.18);
+
+    backdrop-filter:blur(18px);
+
+    border:1px solid rgba(255,255,255,.25);
+
+    border-radius:30px;
+
+    padding:45px 35px;
+
+    text-align:center;
+
+    box-shadow:0 20px 40px rgba(0,0,0,.15);
+
+    animation:fadeUp 1s;
+
+}
+
+.card h1{
+
+    color:white;
+
+    font-size:clamp(28px,5vw,38px);
+
+    margin-bottom:10px;
+
+    text-shadow:0 3px 10px rgba(0,0,0,.2);
+
+}
+
+.card p{
+
+    color:white;
+
+    line-height:28px;
+
+    margin-bottom:25px;
+
+}
+
+/* =========================
+        HEART
+========================= */
+
+.love{
+
+    font-size:55px;
+
+    margin:20px 0;
+
+    animation:heartbeat 1.8s infinite;
+
+}
+
+/* =========================
+        INPUT
+========================= */
+
+input{
+
+    width:100%;
+
+    padding:16px;
+
+    border:none;
+
+    outline:none;
+
+    border-radius:50px;
+
+    font-size:16px;
+
+    margin-bottom:20px;
+
+    transition:.35s;
+
+}
+
+input:focus{
+
+    transform:scale(1.02);
+
+    box-shadow:0 0 20px rgba(255,79,162,.5);
+
+}
+
+/* =========================
+        BUTTON
+========================= */
+
+button{
+
+    width:100%;
+
+    max-width:280px;
+
+    padding:15px;
+
+    border:none;
+
+    border-radius:50px;
+
+    cursor:pointer;
+
+    background:white;
+
+    color:#ff4fa2;
+
+    font-size:17px;
+
+    font-weight:600;
+
+    transition:.35s;
+
+}
+
+button:hover{
+
+    background:#ff4fa2;
+
+    color:white;
+
+    transform:translateY(-3px);
+
+    box-shadow:0 15px 30px rgba(255,79,162,.4);
+
+}
+
+/* =========================
+        ERROR
+========================= */
+
+.error{
+
+    margin-top:20px;
+
+    color:white;
+
+    font-weight:600;
+
+}
+
+/* =========================
+    FLOATING HEARTS
+========================= */
+
+.heart{
+
+    position:fixed;
+
+    font-size:35px;
+
+    opacity:.7;
+
+    animation:floatHeart 8s ease-in-out infinite;
+
+    user-select:none;
+
+}
+
+.h1{
+
+    top:40px;
+    left:50px;
+
+}
+
+.h2{
+
+    top:120px;
+    right:60px;
+
+    animation-delay:2s;
+
+}
+
+.h3{
+
+    bottom:70px;
+    left:100px;
+
+    animation-delay:4s;
+
+}
+
+.h4{
+
+    bottom:90px;
+    right:80px;
+
+    animation-delay:6s;
+
+}
+
+/* =========================
+        ANIMATIONS
+========================= */
+
+@keyframes floatHeart{
+
+    0%{
+
+        transform:translateY(0);
+
+    }
+
+    50%{
+
+        transform:translateY(-20px);
+
+    }
+
+    100%{
+
+        transform:translateY(0);
+
+    }
+
+}
+
+@keyframes heartbeat{
+
+    0%{
+
+        transform:scale(1);
+
+    }
+
+    25%{
+
+        transform:scale(1.15);
+
+    }
+
+    50%{
+
+        transform:scale(.95);
+
+    }
+
+    75%{
+
+        transform:scale(1.1);
+
+    }
+
+    100%{
+
+        transform:scale(1);
+
+    }
+
+}
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(35px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+.shake{
+
+    animation:shake .45s;
+
+}
+
+@keyframes shake{
+
+    0%{transform:translateX(0);}
+    25%{transform:translateX(-8px);}
+    50%{transform:translateX(8px);}
+    75%{transform:translateX(-8px);}
+    100%{transform:translateX(0);}
+
+}
+
+/* =========================
+    RESPONSIVE LOGIN
+========================= */
+
+@media (max-width:768px){
+
+    .card{
+
+        padding:35px 25px;
+
+    }
+
+}
+
+@media (max-width:480px){
+
+    .card{
+
+        width:95%;
+
+        padding:30px 20px;
+
+    }
+
+    .card h1{
+
+        font-size:30px;
+
+    }
+
+    .love{
+
+        font-size:45px;
+
+    }
+
+    input{
+
+        font-size:15px;
+
+    }
+
+    button{
+
+        width:100%;
+
+    }
+
+}
+
+/* =====================================================
+   HAPPY BIRTHDAY WEBSITE
+   PART 2
+   Home • Gallery • Letter • Closing Envelope
+===================================================== */
+
+/* =========================
+        HOME PAGE
+========================= */
+
+.birthday-page{
+
+    width:100%;
+
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:40px 20px;
+
+}
+
+.birthday-card{
+
+    width:min(92%,750px);
+
+    background:rgba(255,255,255,.18);
+
+    backdrop-filter:blur(20px);
+
+    border:1px solid rgba(255,255,255,.25);
+
+    border-radius:35px;
+
+    padding:45px;
+
+    text-align:center;
+
+    box-shadow:0 20px 40px rgba(0,0,0,.15);
+
+    animation:fadeUp 1s;
+
+}
+
+.birthday-icon{
+
+    font-size:70px;
+
+    margin-bottom:20px;
+
+    animation:heartbeat 2s infinite;
+
+}
+
+.birthday-card h3{
+
+    color:white;
+
+    font-size:24px;
+
+    font-weight:500;
+
+}
+
+.birthday-card h1{
+
+    font-family:'Great Vibes',cursive;
+
+    color:white;
+
+    font-size:clamp(45px,7vw,70px);
+
+    margin:20px 0;
+
+}
+
+#typing{
+
+    color:white;
+
+    line-height:34px;
+
+    font-size:18px;
+
+    min-height:180px;
+
+    margin-bottom:35px;
+
+}
+
+/* =========================
+        GALLERY
+========================= */
+
+.gallery-page{
+
+    width:100%;
+
+    min-height:100vh;
+
+    padding:70px 40px;
+
+    text-align:center;
+
+}
+
+.gallery-page h1{
+
+    color:white;
+
+    font-family:'Great Vibes',cursive;
+
+    font-size:clamp(45px,7vw,70px);
+
+    margin-bottom:10px;
+
+}
+
+.gallery-page p{
+
+    color:white;
+
+    margin-bottom:45px;
+
+    font-size:18px;
+
+}
+
+.gallery{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+
+    gap:30px;
+
+}
+
+/* =========================
+        PHOTO CARD
+========================= */
+
+.photo{
+
+    background:white;
+
+    padding:15px;
+
+    border-radius:18px;
+
+    transition:.4s;
+
+    cursor:pointer;
+
+    box-shadow:0 15px 35px rgba(0,0,0,.18);
+
+}
+
+.photo:hover{
+
+    transform:translateY(-10px) rotate(-2deg);
+
+}
+
+.photo img{
+
+    width:100%;
+
+    aspect-ratio:3/4;
+
+    object-fit:cover;
+
+    border-radius:12px;
+
+}
+
+.photo span{
+
+    display:block;
+
+    margin-top:15px;
+
+    color:#ff4fa2;
+
+    font-weight:600;
+
+}
+
+/* =========================
+        LETTER PAGE
+========================= */
+
+.letter-title{
+
+    font-family:'Great Vibes',cursive;
+
+    color:white;
+
+    font-size:60px;
+
+    margin-bottom:20px;
+
+}
+
+.letter-text{
+
+    color:white;
+
+    line-height:36px;
+
+    font-size:18px;
+
+    text-align:justify;
+
+    margin:35px 0;
+
+}
+
+/* =========================
+        FINISH BUTTON
+========================= */
+
+.finish-btn{
+
+    margin-top:30px;
+
+}
+
+/* =========================
+    CLOSING ENVELOPE
+========================= */
+
+.closing-envelope{
+
+    position:fixed;
+
+    inset:0;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    flex-direction:column;
+
+    background:linear-gradient(135deg,#ffd6e8,#ff73b7);
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transition:1s;
+
+    z-index:9999;
+
+}
+
+.closing-envelope.show{
+
+    opacity:1;
+
+    visibility:visible;
+
+}
+
+/* =========================
+        ENVELOPE
+========================= */
+
+.envelope2{
+
+    width:260px;
+
+    height:180px;
+
+    position:relative;
+
+    animation:floatHeart 2.5s infinite;
+
+}
+
+.bottom{
+
+    width:260px;
+
+    height:150px;
+
+    position:absolute;
+
+    bottom:0;
+
+    background:white;
+
+    border-radius:0 0 18px 18px;
+
+    box-shadow:0 20px 40px rgba(0,0,0,.2);
+
+}
+
+.top{
+
+    width:0;
+
+    height:0;
+
+    position:absolute;
+
+    border-left:130px solid transparent;
+
+    border-right:130px solid transparent;
+
+    border-top:90px solid #ffd5e5;
+
+    z-index:2;
+
+}
+
+.love{
+
+    position:absolute;
+
+    left:50%;
+
+    top:70px;
+
+    transform:translateX(-50%);
+
+    font-size:42px;
+
+    z-index:5;
+
+}
+
+/* =========================
+    CLOSING TEXT
+========================= */
+
+.closing-envelope p{
+
+    color:white;
+
+    margin-top:35px;
+
+    font-size:26px;
+
+    font-weight:600;
+
+}
+
+/* =========================
+        BUTTON
+========================= */
+
+.birthday-card button{
+
+    margin-top:20px;
+
+}
+
+/* =========================
+    PHOTO SHADOW
+========================= */
+
+.photo::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    border-radius:18px;
+
+    pointer-events:none;
+
+}
+
+/* =========================
+    RESPONSIVE TABLET
+========================= */
+
+@media(max-width:768px){
+
+    .birthday-card{
+
+        padding:35px 25px;
+
+    }
+
+    .gallery-page{
+
+        padding:50px 20px;
+
+    }
+
+    .gallery{
+
+        gap:20px;
+
+    }
+
+}
+
+/* =========================
+    RESPONSIVE MOBILE
+========================= */
+
+@media(max-width:480px){
+
+    .birthday-card{
+
+        width:95%;
+
+        padding:28px 20px;
+
+    }
+
+    .birthday-card h1{
+
+        font-size:42px;
+
+    }
+
+    .birthday-card h3{
+
+        font-size:20px;
+
+    }
+
+    #typing{
+
+        font-size:16px;
+
+        line-height:30px;
+
+    }
+
+    .gallery-page h1{
+
+        font-size:45px;
+
+    }
+
+    .gallery-page p{
+
+        font-size:16px;
+
+    }
+
+    .gallery{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .photo{
+
+        padding:12px;
+
+    }
+
+    .closing-envelope p{
+
+        font-size:20px;
+
+        text-align:center;
+
+        padding:0 20px;
+
+    }
+
+    .envelope2{
+
+        transform:scale(.85);
+
+    }
+
+}
+
+/* =====================================================
+   HAPPY BIRTHDAY WEBSITE
+   PART 3 (FINAL)
+   Premium Effect • Music Button • Loading • Responsive
+===================================================== */
+
+
+/* ==========================================
+        SCROLLBAR
+========================================== */
+
+::-webkit-scrollbar{
+
+    width:10px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#ffd8ea;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#ff73b7;
+
+    border-radius:20px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:#ff4fa2;
+
+}
+
+
+/* ==========================================
+        SELECTION
+========================================== */
+
+::selection{
+
+    background:#ff4fa2;
+
+    color:white;
+
+}
+
+
+/* ==========================================
+        SECTION TRANSITION
+========================================== */
+
+section{
+
+    animation:fadeUp .8s ease;
+
+}
+
+
+/* ==========================================
+        GLASS EFFECT
+========================================== */
+
+.glass{
+
+    background:rgba(255,255,255,.18);
+
+    backdrop-filter:blur(20px);
+
+    border:1px solid rgba(255,255,255,.25);
+
+    box-shadow:0 15px 40px rgba(0,0,0,.15);
+
+}
+
+
+/* ==========================================
+        MUSIC BUTTON
+========================================== */
+
+.music-btn{
+
+    position:fixed;
+
+    right:20px;
+
+    top:20px;
+
+    width:60px;
+
+    height:60px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:white;
+
+    color:#ff4fa2;
+
+    font-size:24px;
+
+    cursor:pointer;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.2);
+
+    transition:.3s;
+
+    z-index:999;
+
+}
+
+.music-btn:hover{
+
+    transform:scale(1.1);
+
+}
+
+
+/* ==========================================
+        LOADING
+========================================== */
+
+.loading{
+
+    position:fixed;
+
+    inset:0;
+
+    background:linear-gradient(
+        135deg,
+        #ffd6e8,
+        #ff73b7
+    );
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    flex-direction:column;
+
+    color:white;
+
+    z-index:99999;
+
+}
+
+.loading h2{
+
+    margin-top:20px;
+
+    font-size:26px;
+
+}
+
+.loader-heart{
+
+    font-size:80px;
+
+    animation:heartbeat 1.2s infinite;
+
+}
+
+
+/* ==========================================
+        FLOATING PETALS
+========================================== */
+
+.petal{
+
+    position:fixed;
+
+    color:#fff;
+
+    opacity:.4;
+
+    font-size:22px;
+
+    animation:petalFall linear infinite;
+
+    pointer-events:none;
+
+}
+
+@keyframes petalFall{
+
+    from{
+
+        transform:
+            translateY(-120px)
+            rotate(0deg);
+
+    }
+
+    to{
+
+        transform:
+            translateY(120vh)
+            rotate(360deg);
+
+    }
+
+}
+
+
+/* ==========================================
+        GALLERY HOVER
+========================================== */
+
+.photo{
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+.photo img{
+
+    transition:.5s;
+
+}
+
+.photo:hover img{
+
+    transform:scale(1.08);
+
+}
+
+.photo span{
+
+    transition:.4s;
+
+}
+
+.photo:hover span{
+
+    letter-spacing:1px;
+
+}
+
+
+/* ==========================================
+        LETTER CARD
+========================================== */
+
+.birthday-card{
+
+    transition:.4s;
+
+}
+
+.birthday-card:hover{
+
+    transform:translateY(-5px);
+
+}
+
+
+/* ==========================================
+        BUTTON
+========================================== */
+
+button{
+
+    transition:.35s;
+
+}
+
+button:active{
+
+    transform:scale(.96);
+
+}
+
+
+/* ==========================================
+        FADE
+========================================== */
+
+.fade-out{
+
+    animation:fadeOut .8s forwards;
+
+}
+
+@keyframes fadeOut{
+
+    to{
+
+        opacity:0;
+
+    }
+
+}
+
+
+/* ==========================================
+        DESKTOP
+========================================== */
+
+@media(min-width:1200px){
+
+    .birthday-card{
+
+        max-width:760px;
+
+    }
+
+    .gallery{
+
+        grid-template-columns:
+        repeat(3,1fr);
+
+    }
+
+}
+
+
+/* ==========================================
+        LAPTOP
+========================================== */
+
+@media(max-width:1024px){
+
+    .gallery{
+
+        grid-template-columns:
+        repeat(2,1fr);
+
+    }
+
+}
+
+
+/* ==========================================
+        TABLET
+========================================== */
+
+@media(max-width:768px){
+
+    .gallery{
+
+        grid-template-columns:1fr 1fr;
+
+    }
+
+    .birthday-card{
+
+        padding:35px 25px;
+
+    }
+
+    .music-btn{
+
+        width:55px;
+
+        height:55px;
+
+    }
+
+}
+
+
+/* ==========================================
+        MOBILE
+========================================== */
+
+@media(max-width:480px){
+
+    body{
+
+        overflow-x:hidden;
+
+    }
+
+    .gallery{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .birthday-card{
+
+        width:95%;
+
+        padding:25px;
+
+    }
+
+    .birthday-card h1{
+
+        font-size:42px;
+
+    }
+
+    .birthday-card p{
+
+        font-size:16px;
+
+        line-height:30px;
+
+    }
+
+    .music-btn{
+
+        width:50px;
+
+        height:50px;
+
+        font-size:20px;
+
+    }
+
+}
+
+
+/* ==========================================
+        SMALL PHONE
+========================================== */
+
+@media(max-width:360px){
+
+    .birthday-card h1{
+
+        font-size:35px;
+
+    }
+
+    .card h1{
+
+        font-size:25px;
+
+    }
+
+}
+
+
+/* ==========================================
+        FOOTER
+========================================== */
+
+.footer{
+
+    text-align:center;
+
+    color:white;
+
+    padding:40px 20px;
+
+    opacity:.8;
+
+}
+
+.subtitle{
+
+    color:white;
+
+    font-family:'Great Vibes',cursive;
+
+    font-size:42px;
+
+    margin-bottom:15px;
+
+}
+
+.hint{
+
+    color:white;
+
+    line-height:28px;
+
+    margin-bottom:30px;
+
+    opacity:.95;
+
+}
+
+.footer{
+
+    margin-top:30px;
+
+    color:white;
+
+    font-size:13px;
+
+    opacity:.75;
+
+}
+
+/* ==========================================
+        END
+========================================== */
